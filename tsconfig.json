@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "dist/src",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noImplicitThis": true,
+    "resolveJsonModule": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "importHelpers": false,
+    "declarationDir": "dist/@types",
+    "pretty": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "typeRoots": [
+    "node_modules/@types",
+    "node_modules/playwright-core/types"
+  ]
+}

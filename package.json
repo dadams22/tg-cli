@@ -1,0 +1,88 @@
+{
+  "name": "Testgram",
+  "version": "1.0.0",
+  "description": "Testgram runner",
+  "author": {
+    "name": "Testgram AI",
+    "email": "support@testgram.ai"
+  },
+  "main": "dist/src/main.js",
+  "build": {
+    "appId": "ai.testgram.run",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "extends": null,
+    "protocols": [
+      {
+        "name": "testgram",
+        "schemes": [
+          "testgram"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "electron ./dist/src/main.js",
+    "pack": "yarn run build && electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "testgram",
+    "tg-cli",
+    "test",
+    "automation",
+    "simulation",
+    "artificial intelligence",
+    "AI",
+    "web testing",
+    "selenium",
+    "cypress",
+    "datadog",
+    "sentry"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/ssh2": "^0.5.48",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "electron": "^15.3.0",
+    "electron-builder": "^22.13.1",
+    "eslint": "^7.32.0",
+    "rollup": "^2.59.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "draftlog": "^1.0.13",
+    "electron-progressbar": "^2.0.1",
+    "electron-store": "^8.0.1",
+    "enquirer": "^2.3.6",
+    "listr2": "^3.13.3",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.0.0",
+    "node-fetch-commonjs": "^3.0.3",
+    "playwright-core": "^1.16.2",
+    "ssh2": "^1.5.0",
+    "websocket": "^1.0.34"
+  }
+}
