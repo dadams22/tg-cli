@@ -90,3 +90,6 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 tgconfig.json
+
+# Using yarn, so don't need to track package-lock.json
+package-lock.json

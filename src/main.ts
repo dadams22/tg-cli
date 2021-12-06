@@ -18,7 +18,8 @@ app.requestSingleInstanceLock(); // notify other instance of our existence
 
 let currentJob: ReturnType<typeof start> = null;
 
-const isCli = (args: string[]) => args.length > 1 && getCwd(args); // by default CLI will have > 1 args with a cwd param
+// by default CLI will have > 2 args (electron executable, entry point, cli command) and accessible cwd
+const isCli = (args: string[]) => args.length > 2 && process.cwd();
 
 if (!app.isDefaultProtocolClient('myapp')) {
   // Define custom protocol handler. Deep linking works on packaged versions of the application!
@@ -63,11 +64,10 @@ function handleNewInstance(args: string[]) {
 }
 
 function start(args: string[]): Promise<void> {
-
   let config: BaseConfig
   if (isCli(args)) {
-    const cwd = getCwd(args);
-    args = args.slice(0, args.length - 2); // remove the CWD args for the parser
+    const cwd = process.cwd();
+    args = process.argv;
     config = new CliConfig(cwd);
   } else {
     // a web style config
@@ -100,14 +100,6 @@ function start(args: string[]): Promise<void> {
       app.quit()
     }
   })
-}
-
-function getCwd(args: string[]): string {
-  const cwdIdx = args.indexOf("--cwd");
-  if (cwdIdx !== -1) {
-    return args[cwdIdx + 1]
-  }
-  return undefined
 }
 
 // when booting from a url, argv would be empty

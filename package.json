@@ -1,23 +1,25 @@
 {
   "name": "Testgram",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Testgram runner",
   "author": {
     "name": "Testgram AI",
     "email": "support@testgram.ai"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/dadams22/tg-cli.git"
+    "type": "git",
+    "url": "https://github.com/dadams22/tg-cli.git"
   },
   "main": "dist/src/main.js",
   "build": {
     "appId": "ai.testgram.cli",
-    "publish": [{
-      "provider": "github",
-      "owner": "dadams22",
-      "repo": "tg-cli"
-    }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "dadams22",
+        "repo": "tg-cli"
+      }
+    ],
     "mac": {
       "category": "public.app-category.developer-tools"
     },
