@@ -1,6 +1,6 @@
 {
   "name": "Testgram",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Testgram runner",
   "author": {
     "name": "Testgram AI",
@@ -21,7 +21,7 @@
       }
     ],
     "mac": {
-      "target": "tar.gz",
+      "target": "7z",
       "category": "public.app-category.developer-tools"
     },
     "files": [
