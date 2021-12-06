@@ -14,16 +14,12 @@ import { Agent } from './command/Agent';
 import { DataMap } from './command/Map';
 import { Play } from './command/Play';
 
-console.log('Executing main.ts');
-console.log('Args at beginning of execution:', process.argv);
-console.log('cwd:', process.cwd())
-
 app.requestSingleInstanceLock(); // notify other instance of our existence
 
 let currentJob: ReturnType<typeof start> = null;
 
-// by default CLI will have > 2 args (electron executable, entry point, cli command) and accessible cwd
-const isCli = (args: string[]) => args.length > 2 && process.cwd();
+// by default CLI will have > 1 args (entry point, cli command) and accessible cwd
+const isCli = (args: string[]) => args.length > 1 && process.cwd();
 
 if (!app.isDefaultProtocolClient('myapp')) {
   // Define custom protocol handler. Deep linking works on packaged versions of the application!
@@ -71,7 +67,7 @@ function start(args: string[]): Promise<void> {
   let config: BaseConfig
   if (isCli(args)) {
     const cwd = process.cwd();
-    args = process.argv;
+    args = process.argv.slice(1, process.argv.length); // Remove entry point from cli args
     console.log('Executing CLI with args', args);
     config = new CliConfig(cwd);
   } else {
