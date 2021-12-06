@@ -14,6 +14,9 @@ import { Agent } from './command/Agent';
 import { DataMap } from './command/Map';
 import { Play } from './command/Play';
 
+console.log('Executing main.ts');
+console.log('Args at beginning of execution', process.argv);
+
 app.requestSingleInstanceLock(); // notify other instance of our existence
 
 let currentJob: ReturnType<typeof start> = null;
@@ -68,6 +71,7 @@ function start(args: string[]): Promise<void> {
   if (isCli(args)) {
     const cwd = process.cwd();
     args = process.argv;
+    console.log('Executing CLI with args', args);
     config = new CliConfig(cwd);
   } else {
     // a web style config
