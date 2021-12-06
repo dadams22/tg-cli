@@ -6,15 +6,23 @@
     "name": "Testgram AI",
     "email": "support@testgram.ai"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/dadams22/tg-cli.git"
+  },
   "main": "dist/src/main.js",
   "build": {
-    "appId": "ai.testgram.run",
+    "appId": "ai.testgram.cli",
+    "publish": [{
+      "provider": "github",
+      "owner": "dadams22",
+      "repo": "tg-cli"
+    }],
     "mac": {
       "category": "public.app-category.developer-tools"
     },
     "files": [
       "dist/**/*",
-      "node_modules/**/*",
       "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
       "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
       "!**/node_modules/*.d.ts",
@@ -43,7 +51,8 @@
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "start": "electron ./dist/src/main.js",
     "pack": "yarn run build && electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "yarn run build && electron-builder build --mac --publish never",
+    "publish": "yarn run build && electron-builder build --mac --publish always"
   },
   "keywords": [
     "testgram",
@@ -74,8 +83,10 @@
     "chalk": "^4.1.2",
     "commander": "^8.3.0",
     "draftlog": "^1.0.13",
+    "electron-is-dev": "^2.0.0",
     "electron-progressbar": "^2.0.1",
     "electron-store": "^8.0.1",
+    "electron-updater": "^4.3.9",
     "enquirer": "^2.3.6",
     "listr2": "^3.13.3",
     "lodash": "^4.17.21",
@@ -83,6 +94,7 @@
     "node-fetch-commonjs": "^3.0.3",
     "playwright-core": "^1.16.2",
     "ssh2": "^1.5.0",
+    "update-electron-app": "^2.0.1",
     "websocket": "^1.0.34"
   }
 }

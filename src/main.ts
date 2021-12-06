@@ -1,5 +1,7 @@
 import { app } from "electron";
 import { Command } from 'commander';
+import isDev from "electron-is-dev";
+import { configureAutoUpdate } from "./exec/update";
 import { Install } from './command/Install.js';
 import { colors, logger } from './util/colors.js';
 import { BaseConfig } from './config/base-config';
@@ -38,6 +40,10 @@ app.on('will-finish-launching', function () {
 app.on("second-instance", (event, secondArgs) => {
   handleNewInstance(secondArgs)
 })
+
+if (!isDev) {
+  configureAutoUpdate();
+}
 
 function handleNewInstance(args: string[]) {
   if (isCli(args)) {
