@@ -67,7 +67,7 @@ function start(args: string[]): Promise<void> {
   let config: BaseConfig
   if (isCli(args)) {
     const cwd = process.cwd();
-    args = process.argv.slice(1, process.argv.length); // Remove entry point from cli args
+    args = process.argv;
     console.log('Executing CLI with args', args);
     config = new CliConfig(cwd);
   } else {
