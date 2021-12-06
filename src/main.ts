@@ -15,7 +15,8 @@ import { DataMap } from './command/Map';
 import { Play } from './command/Play';
 
 console.log('Executing main.ts');
-console.log('Args at beginning of execution', process.argv);
+console.log('Args at beginning of execution:', process.argv);
+console.log('cwd:', process.cwd())
 
 app.requestSingleInstanceLock(); // notify other instance of our existence
 

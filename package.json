@@ -1,6 +1,6 @@
 {
   "name": "Testgram",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Testgram runner",
   "author": {
     "name": "Testgram AI",
@@ -25,7 +25,7 @@
       "category": "public.app-category.developer-tools"
     },
     "files": [
-      "dist/**/*",
+      "dist/src/**/*",
       "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
       "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
       "!**/node_modules/*.d.ts",
